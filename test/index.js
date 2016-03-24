@@ -20,7 +20,7 @@ module.exports = {
         this.inspector.compile()
           .then(() => {
             Object.keys(paths).forEach(key => {
-              test.equal(this.inspector.inspect(key), paths[key])
+              test.equal(this.inspector.inspect(key), paths[key]);
             });
             test.done();
           })
