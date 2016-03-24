@@ -1,0 +1,16 @@
+sudo: false
+language: node_js
+node_js:
+- '4.2'
+- node
+cache:
+  directories:
+  - node_modules
+script:
+  - npm test
+  - npm run lint
+  - npm run coverage
+
+matrix:
+  allow_failures:
+    - node_js: node
