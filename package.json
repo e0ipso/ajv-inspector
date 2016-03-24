@@ -1,0 +1,39 @@
+{
+  "name": "ajv-inspector",
+  "version": "1.0.0",
+  "description": "Uses ajv to compile a JSON Schema and lets you inspect it.",
+  "main": "lib/ajv-inspector.js",
+  "scripts": {
+    "test": "istanbul cover --print both nodeunit ./test",
+    "lint": "eslint --quiet . --",
+    "coverage": "istanbul check-coverage --statements 95 --lines 95 --branches 95 --functions 95"
+  },
+  "author": "Mateu Aguiló Bosch <mateu.aguilo.bosch@gmail.com>",
+  "contributors": [
+    {
+      "name": "Mateu Aguiló Bosch",
+      "email": "mateu.aguilo.bosch@gmail.com"
+    }
+  ],
+  "repository": "e0ipso/ajv-inspector",
+  "dependencies": {
+    "ajv": ">=3.8.0",
+    "lodash": ">=3.10.1",
+    "request": ">=2.69.0"
+  },
+  "devDependencies": {
+    "eslint": "^1.10.3",
+    "ghooks": "^1.0.1",
+    "istanbul": "^0.4.2",
+    "nodeunit": "^0.9.1"
+  },
+  "config": {
+    "ghooks": {
+      "pre-commit": "npm run lint",
+      "pre-push": "npm test"
+    }
+  },
+  "engines": {
+    "node": ">=4.2.0"
+  }
+}
