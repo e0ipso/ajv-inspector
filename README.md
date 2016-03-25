@@ -39,7 +39,7 @@ inspector.compile()
     // You can now inspect the schema!
     console.log(inspector.inspect('location.latitude'));
     // Outputs: {type: 'number'}
-  })
+  });
 ```
 
 See the [unit tests](https://github.com/e0ipso/ajv-inspector/blob/master/test/index.js#L111-L130) for more details and examples.

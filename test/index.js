@@ -122,7 +122,7 @@ module.exports = {
         this.inspector.compile()
           .then(() => {
             paths.forEach(path => {
-              test.equal(this.inspector.inspect(path.path), path.type);
+              test.equal(this.inspector.inspect(path.path).type, path.type);
             });
             test.done();
           })
