@@ -25,7 +25,9 @@
     "eslint": "^1.10.3",
     "ghooks": "^1.0.1",
     "istanbul": "^0.4.2",
-    "nodeunit": "^0.9.1"
+    "nodeunit": "^0.9.1",
+    "require-subvert": "^0.1.0",
+    "sinon": "^1.17.3"
   },
   "config": {
     "ghooks": {
