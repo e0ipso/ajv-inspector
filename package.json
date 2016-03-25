@@ -6,7 +6,8 @@
   "scripts": {
     "test": "istanbul cover --print both nodeunit ./test",
     "lint": "eslint --quiet . --",
-    "coverage": "istanbul check-coverage --statements 95 --lines 95 --branches 95 --functions 95"
+    "coverage": "istanbul check-coverage --statements 95 --lines 95 --branches 95 --functions 95",
+    "coveralls": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls"
   },
   "author": "Mateu Aguiló Bosch <mateu.aguilo.bosch@gmail.com>",
   "contributors": [
@@ -22,10 +23,13 @@
     "request": ">=2.69.0"
   },
   "devDependencies": {
+    "coveralls": "^2.11.9",
     "eslint": "^1.10.3",
     "ghooks": "^1.0.1",
     "istanbul": "^0.4.2",
-    "nodeunit": "^0.9.1"
+    "nodeunit": "^0.9.1",
+    "require-subvert": "^0.1.0",
+    "sinon": "^1.17.3"
   },
   "config": {
     "ghooks": {

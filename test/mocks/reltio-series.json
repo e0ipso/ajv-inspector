@@ -36,7 +36,7 @@
               "Sunday"
             ]
           },
-          "startTime": {"$ref": "common.json#/time"},
+          "customObject": {"$ref": "common.json#/custom"},
           "endTime": {"$ref": "common.json#/time"}
         }
       }

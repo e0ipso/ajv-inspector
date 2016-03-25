@@ -2,98 +2,15 @@
   "$schema": "http://json-schema.org/schema#",
   "title": "Common types re-usable across different schemas",
   "id": "common.json#",
-  "url": {
-    "type": "string"
-  },
   "time": {
     "type": "string",
     "description": "Not ISO-8601 compliant."
   },
-  "multilingualString": {
-    "type": "array",
-    "items": {"$ref": "#/localizedStringValue"}
-  },
-  "locale": {
-    "type": "string",
-    "description": "The language tag as in compliance with BCP-47.",
-    "pattern": "/^[a-z]{2}(-[A-Z]{2})?$/"
-  },
-  "localizedStringValue": {
+  "custom": {
     "type": "object",
-    "additionalProperties": false,
-    "patternProperties": {
-      "/^[a-z][A-Za-z0-9]*(Value)$/": {
-        "description": "The localized string.",
-        "type": "string"
-      }
-    },
     "properties": {
-      "locale": {"$ref": "#/locale"}
-    }
-  },
-  "systemString": {
-    "type": "object",
-    "additionalProperties": false,
-    "patternProperties": {
-      "/^[a-z][A-Za-z0-9]*(Value)$/": {
-        "description": "The qualified string.",
-        "type": "string"
-      }
-    },
-    "properties": {
-      "systemCode": {
-        "type": "string"
-      }
-    }
-  },
-  "positiveInteger": {
-    "type": "integer",
-    "minimum": 0,
-    "exclusiveMinimum": true
-  },
-  "image": {
-    "type": "object",
-    "additionalProperties": false,
-    "required": ["path", "width", "height", "imageType"],
-    "properties": {
-      "path": {
-        "type": "string"
-      },
-      "width": {"$ref": "#/positiveInteger"},
-      "height": {"$ref": "#/positiveInteger"},
-      "imageType": {
-        "type": "string",
-        "enum": ["Default"]
-      },
-      "locales": {
-        "type": "array",
-        "items": {"$ref": "#/locale"}
-      },
-      "copyright": {
-        "type": "string"
-      },
-      "description": {"$ref": "#/multilingualString"},
-      "title": {"$ref": "#/multilingualString"},
-      "altTitle": {"$ref": "#/multilingualString"},
-      "format": {
-        "type": "string"
-      }
-    }
-  },
-  "socialMediaItem": {
-    "type": "object",
-    "additionalProperties": false,
-    "required": ["name", "url"],
-    "properties": {
-      "name": {
-        "type": "string"
-      },
-      "url": {
-        "type": "string",
-        "format": "uri"
-      },
-      "handle": {
-        "type": "string"
+      "lorem": {
+        "type": "number"
       }
     }
   }
