@@ -40,6 +40,10 @@
           "endTime": {"$ref": "common.json#/time"}
         }
       }
+    },
+    "shortDescription": {
+      "description": "Short description.",
+      "$ref": "common.json#/multilingualString"
     }
   }
 }
