@@ -109,11 +109,12 @@ module.exports = {
         test.done();
       },
       inspect(test) {
-        test.expect(7);
+        test.expect(8);
         const paths = [
           {path: 'shortDescription', type: 'array'},
           {path: 'shortDescription.[item]', type: 'object'},
           {path: 'shortDescription.[item].locale', type: 'string'},
+          {path: 'shortDescription.[item].descriptionValue', type: 'string'},
           {
             path: ['currentTuneIn', '[item]', 'customObject', 'lorem'],
             type: 'number'
