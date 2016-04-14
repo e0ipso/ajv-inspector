@@ -44,6 +44,13 @@
     "shortDescription": {
       "description": "Short description.",
       "$ref": "common.json#/multilingualString"
+    },
+    "ratings": {
+      "description": "Ratings that apply to this series",
+      "type": "array",
+      "items": {
+        "$ref": "common.json#/systemString"
+      }
     }
   }
 }

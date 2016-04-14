@@ -35,5 +35,20 @@
     "type": "string",
     "description": "The language tag as in compliance with BCP-47.",
     "pattern": "/^[a-z]{2}(-[A-Z]{2})?$/"
+  },
+  "systemString": {
+    "type": "object",
+    "additionalProperties": false,
+    "patternProperties": {
+      "/^[a-z][A-Za-z0-9]*(Value)$/": {
+        "description": "The qualified string.",
+        "type": "string"
+      }
+    },
+    "properties": {
+      "systemCode": {
+        "type": "string"
+      }
+    }
   }
 }

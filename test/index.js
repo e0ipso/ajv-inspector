@@ -99,17 +99,30 @@ module.exports = {
         test.done();
       },
       referenceFail(test) {
-        test.expect(1);
+        test.expect(2);
         test.throws(() => this.inspector._recurse(['fake'], {
           schema: {
             '$ref': 'nope!'
           },
           refs: {}
         }, null), Error);
+
+        this.inspector.compile()
+          .then(() => {
+            this.inspector.inspect('ratings.[item].fake');
+          })
+          .catch(() => {
+            test.ok(true);
+            test.done();
+          });
+      },
+      constant(test) {
+        test.expect(1);
+        test.equal('[item]', SchemaInspector.arrayItemLabel);
         test.done();
       },
       inspect(test) {
-        test.expect(8);
+        test.expect(9);
         const paths = [
           {path: 'shortDescription', type: 'array'},
           {path: 'shortDescription.[item]', type: 'object'},
@@ -121,7 +134,8 @@ module.exports = {
           },
           {path: 'currentTuneIn.[item].endTime', type: 'string'},
           {path: 'currentTuneIn.[item]', type: 'object'},
-          {path: 'currentTuneIn', type: 'array'}
+          {path: 'currentTuneIn', type: 'array'},
+          {path: 'ratings.[item].systemValue', type: 'string'}
         ];
         this.inspector.compile()
           .then(() => {
