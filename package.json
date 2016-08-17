@@ -1,6 +1,6 @@
 {
   "name": "ajv-inspector",
-  "version": "1.0.4",
+  "version": "1.1.4",
   "description": "Uses ajv to compile a JSON Schema and lets you inspect it.",
   "main": "lib/ajv-inspector.js",
   "scripts": {
