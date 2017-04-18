@@ -18,9 +18,9 @@
   ],
   "repository": "e0ipso/ajv-inspector",
   "dependencies": {
-    "ajv": ">=3.8.0",
-    "lodash": ">=3.10.1",
-    "request": ">=2.69.0"
+    "ajv": "~4.11.7",
+    "lodash": "~4.17.4",
+    "request": "~2.81.0"
   },
   "devDependencies": {
     "coveralls": "^2.11.9",
