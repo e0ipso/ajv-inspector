@@ -1,11 +1,13 @@
 {
   "$schema": "http://json-schema.org/schema#",
   "title": "Series data model Schema for the Reltio data",
-  "id": "reltio-series.json#",
+  "$id": "reltio-series.json#",
   "description": "Schema for an Series entity in the Reltio data model.",
   "additionalProperties": false,
   "type": "object",
-  "required": ["isRunning"],
+  "required": [
+    "isRunning"
+  ],
   "properties": {
     "finaleDate": {
       "description": "The date time the finale for this series was aired.",
@@ -22,7 +24,9 @@
       "items": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["day"],
+        "required": [
+          "day"
+        ],
         "properties": {
           "day": {
             "type": "string",
@@ -36,8 +40,12 @@
               "Sunday"
             ]
           },
-          "customObject": {"$ref": "common.json#/custom"},
-          "endTime": {"$ref": "common.json#/time"}
+          "customObject": {
+            "$ref": "common.json#/custom"
+          },
+          "endTime": {
+            "$ref": "common.json#/time"
+          }
         }
       }
     },
