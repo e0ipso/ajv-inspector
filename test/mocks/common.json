@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/schema#",
   "title": "Common types re-usable across different schemas",
-  "id": "common.json#",
+  "$id": "common.json#",
   "time": {
     "type": "string",
     "description": "Not ISO-8601 compliant."
@@ -16,7 +16,9 @@
   },
   "multilingualString": {
     "type": "array",
-    "items": {"$ref": "#/localizedStringValue"}
+    "items": {
+      "$ref": "#/localizedStringValue"
+    }
   },
   "localizedStringValue": {
     "type": "object",
@@ -28,7 +30,9 @@
       }
     },
     "properties": {
-      "locale": {"$ref": "#/locale"}
+      "locale": {
+        "$ref": "#/locale"
+      }
     }
   },
   "locale": {

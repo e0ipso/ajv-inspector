@@ -48,36 +48,37 @@ module.exports = {
         cb();
       },
       httpSchemaLoader(test) {
-        test.expect(2);
-        SchemaInspector.httpSchemaLoader('fake.json', (err, data) => {
-          test.ok(!err);
-          test.ok(data.success === true);
-          test.done();
-        });
+        test.expect(1);
+        SchemaInspector.httpSchemaLoader('fake.json')
+          .then(data => {
+            test.ok(data.success === true);
+            test.done();
+          });
       },
       httpSchemaLoaderCache(test) {
-        test.expect(2);
+        test.expect(1);
         // Make a second call to load from cache.
-        SchemaInspector.httpSchemaLoader('fake.json', (err, data) => {
-          test.ok(!err);
-          test.ok(data.success === true);
-          test.done();
-        });
+        SchemaInspector.httpSchemaLoader('fake.json')
+          .then(data => {
+            test.ok(data.success === true);
+            test.done();
+          });
       },
       httpSchemaLoaderFail(test) {
-        test.expect(2);
-        SchemaInspector.httpSchemaLoader('fail.json', (err, data) => {
-          test.ok(!data);
-          test.equal('Loading error: 500', err.message);
-          test.done();
-        });
+        test.expect(1);
+        SchemaInspector.httpSchemaLoader('fail.json')
+          .catch(err => {
+            test.equal('Loading error: 500', err.message);
+            test.done();
+          });
       },
       httpSchemaLoaderParseFail(test) {
         test.expect(1);
-        SchemaInspector.httpSchemaLoader('parseFail.json', (err, data) => {
-          test.ok(!data);
-          test.done();
-        });
+        SchemaInspector.httpSchemaLoader('parseFail.json')
+          .catch(() => {
+            test.ok(true);
+            test.done();
+          });
       },
       compileFail(test) {
         // Required properties cannot be empty.
@@ -136,11 +137,13 @@ module.exports = {
           {path: 'currentTuneIn', type: 'array'},
           {path: 'ratings.[item].systemValue', type: 'string'}
         ];
-        this.inspector.compileSync();
-        paths.forEach(path => {
-          test.equal(this.inspector.inspect(path.path).type, path.type);
-        });
-        test.done();
+        this.inspector.compile()
+          .then(() => {
+            paths.forEach(path => {
+              test.equal(this.inspector.inspect(path.path).type, path.type);
+            });
+            test.done();
+          });
       }
     }
   }
